@@ -73,8 +73,11 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2855'
 
-    compile 'net.industrial-craft:industrialcraft-2:2.8.99-ex112'
-    compile "li.cil.oc:OpenComputers:MC1.12.2-1.7.5.221"
+    // compile 'net.industrial-craft:industrialcraft-2:2.8.222-ex112'
+    // compile "li.cil.oc:OpenComputers:MC1.12.2-1.7.5.221"
+
+    compile files('dependencies/industrialcraft-2-2.8.222-ex112.jar')
+    compile files('dependencies/OpenComputers-MC1.12.2-1.7.7+5413028.jar')
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

@@ -64,7 +64,6 @@ public class IC2SteamGeneratorDriver extends DriverSidedTileEntity {
          * <code>this.inputMB = Math.max(Math.min(this.inputMB + event, 1000), 0);</code>
          * <br>
          * @param targetRate
-         * @return
          */
         public void setInputRate(int targetRate) {
             assert 0 <= targetRate && targetRate <= 1000;
@@ -93,7 +92,6 @@ public class IC2SteamGeneratorDriver extends DriverSidedTileEntity {
          * <code>this.pressure = Math.min(this.pressure + (event - 2000), 300);</code>
          * <br>
          * @param targetPressure
-         * @return
          */
         public void setPressure(int targetPressure) {
             assert 0 <= targetPressure && targetPressure <= 300;
