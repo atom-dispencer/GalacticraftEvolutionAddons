@@ -1,0 +1,16 @@
+[
+{
+  "modid": "galacticevolutionaddons",
+  "name": "Galactic Evolution Addons",
+  "description": "Customisations for the Galactic Evolution mod-pack.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["GenElectrovise"],
+  "credits": "GamesMaster3000X, with whom I played the mod-pack",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
