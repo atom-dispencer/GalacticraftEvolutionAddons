@@ -15,20 +15,16 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package genelectrovise.galacticevolution.drivers;
+package genelectrovise.galacticevolutionaddons.drivers;
 
-import ic2.core.block.reactor.tileentity.TileEntityReactorChamberElectric;
 import ic2.core.block.reactor.tileentity.TileEntityReactorVessel;
 import li.cil.oc.api.driver.NamedBlock;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.ManagedEnvironment;
-import li.cil.oc.api.network.Message;
-import li.cil.oc.api.network.Node;
 import li.cil.oc.api.prefab.DriverSidedTileEntity;
 import li.cil.oc.integration.ManagedTileEntityEnvironment;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -47,7 +43,7 @@ public class IC2ReactorVesselDriver extends DriverSidedTileEntity {
 
     public static final class Environment extends ManagedTileEntityEnvironment<TileEntityReactorVessel> implements NamedBlock {
 
-        public static final String NAME = "ge_ic2_reactor_vessel";
+        public static final String NAME = "ge_reactor_vessel";
         private final TileEntityReactorVessel vessel;
 
         public Environment(final TileEntityReactorVessel tileEntity) {

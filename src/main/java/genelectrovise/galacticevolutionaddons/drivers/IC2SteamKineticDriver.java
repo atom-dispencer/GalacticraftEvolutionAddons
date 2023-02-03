@@ -15,9 +15,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package genelectrovise.galacticevolution.drivers;
+package genelectrovise.galacticevolutionaddons.drivers;
 
-import ic2.core.block.TileEntityBlock;
 import ic2.core.block.kineticgenerator.tileentity.*;
 import li.cil.oc.api.driver.NamedBlock;
 import li.cil.oc.api.machine.Arguments;
@@ -105,11 +104,6 @@ public class IC2SteamKineticDriver extends DriverSidedTileEntity {
         @Callback(doc = "function():int -- (GE) Get the tick rate of this generator. No idea why this is needed as it's always 20.")
         public Object[] ge_getTickRate(final Context context, final Arguments args) {
             return new Object[] { generator.getTickRate() };
-        }
-
-        @Callback(doc = "function():int -- (GE) Get the tick rate of this generator. No idea why this is needed as it's always 20.")
-        public Object[] ge_getTickRate(final Context context, final Arguments args) {
-            return new Object[] { generator. };
         }
     }
 }

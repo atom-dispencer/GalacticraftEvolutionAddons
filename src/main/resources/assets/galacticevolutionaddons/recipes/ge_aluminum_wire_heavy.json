@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "ingotAluminum"
+        },
+        {
+            "item": "ic2:crafting",
+			"data": 0
+        },
+        {
+            "item": "galacticraftcore:aluminum_wire",
+			"data": 0
+        }
+    ],
+    "result": {
+        "item": "galacticraftcore:aluminum_wire",
+        "count": 1,
+        "data": 1
+    }
+}

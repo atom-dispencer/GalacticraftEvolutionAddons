@@ -15,13 +15,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package genelectrovise.galacticevolution.drivers;
+package genelectrovise.galacticevolutionaddons.drivers;
 
-import com.google.common.collect.Maps;
-import ic2.core.block.comp.Fluids;
-import ic2.core.block.reactor.tileentity.TileEntityNuclearReactorElectric;
 import ic2.core.block.wiring.TileEntityTransformer;
-import ic2.core.block.wiring.TileEntityTransformerHV;
 import li.cil.oc.api.driver.NamedBlock;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
@@ -32,13 +28,11 @@ import li.cil.oc.integration.ManagedTileEntityEnvironment;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidStack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -100,9 +94,9 @@ public class IC2TransformerDriver extends DriverSidedTileEntity {
             return new Object[] { transformer.getMode().toString().toUpperCase() };
         }
 
-        @Callback(doc = "function(mode:string):boolean -- (GE) Set the mode of this transformer. " +
+        @Callback(doc = "function(mode:string):[boolean success, string error] -- (GE) Set the mode of this transformer. " +
                 "Normally one of 'REDSTONE', 'STEPDOWN' or 'STEPUP'. " +
-                "Returns the table { boolean success, String error } ")
+                "CAUTION: This method uses the transformer's network event API, which is subject to change!")
         public Object[] ge_setMode(final Context context, final Arguments args) {
 
             boolean success = false;
@@ -113,14 +107,15 @@ public class IC2TransformerDriver extends DriverSidedTileEntity {
 
             try {
                 if (!args.isString(0))
-                    throw new IllegalStateException("Argument must be a string to set transformer mode.");
+                    throw new IllegalArgumentException("Argument must be a string to set transformer mode.");
 
                 modeString = args.checkString(0).toLowerCase().trim();
                 TileEntityTransformer.Mode mode = TileEntityTransformer.Mode.valueOf(modeString);
+                transformer.onNetworkEvent(null, mode.ordinal());
 
-                Field field = transformer.getClass().getField(modeFieldName);
+                /*Field field = transformer.getClass().getField(modeFieldName);
                 field.setAccessible(true);
-                field.set(transformer, mode);
+                field.set(transformer, mode);*/
 
                 success = true;
 
@@ -128,23 +123,6 @@ public class IC2TransformerDriver extends DriverSidedTileEntity {
                 errorMessage = "No mode " + modeString;
                 LOGGER.error(errorMessage);
                 iae.printStackTrace();
-            } catch (NoSuchFieldException nsf) {
-                String error = "No field " + modeFieldName;
-                LOGGER.error(error);
-
-                Field[] fields = transformer.getClass().getFields();
-                Stream<String> strings = Arrays.stream(fields).map(f -> f.getType().getName() + ":" + f.getName());
-                LOGGER.error(transformer.getClass().getName() + " has available fields [" + strings.collect(Collectors.joining(",")) + "]");
-
-                nsf.printStackTrace();
-            } catch (IllegalAccessException iae) {
-                errorMessage = "Can't access " + modeFieldName;
-                LOGGER.error(errorMessage);
-                iae.printStackTrace();
-            } catch (SecurityException se) {
-                errorMessage = "Forbidden " + modeFieldName;
-                LOGGER.error(errorMessage);
-                se.printStackTrace();
             } catch (Exception e) {
                 errorMessage = "Strange error while setting transformer mode";
                 LOGGER.error(errorMessage);

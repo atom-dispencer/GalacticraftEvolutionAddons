@@ -15,11 +15,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package genelectrovise.galacticevolution.drivers;
+package genelectrovise.galacticevolutionaddons.drivers;
 
-import com.google.common.collect.Maps;
-import ic2.core.block.TileEntityBlock;
-import ic2.core.block.comp.Fluids;
 import ic2.core.block.kineticgenerator.tileentity.*;
 import li.cil.oc.api.driver.NamedBlock;
 import li.cil.oc.api.machine.Arguments;
@@ -35,7 +32,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 
 import javax.annotation.Nullable;
-import java.util.Map;
 
 public class IC2StirlingKineticDriver extends DriverSidedTileEntity {
 

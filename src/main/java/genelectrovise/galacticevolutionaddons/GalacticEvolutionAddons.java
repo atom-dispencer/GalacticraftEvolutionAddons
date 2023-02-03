@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package genelectrovise.galacticevolution;
+package genelectrovise.galacticevolutionaddons;
 
-import genelectrovise.galacticevolution.drivers.*;
+import genelectrovise.galacticevolutionaddons.drivers.*;
 import li.cil.oc.api.Driver;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -46,9 +46,10 @@ public class GalacticEvolutionAddons
     {
         LOGGER.info(NAME + " - Initialisation");
 
-        LOGGER.info("Adding Galactic Evolution OpenComputers drivers...");
+        LOGGER.info("Adding Galactic Evolution Addons OpenComputers drivers...");
         Driver.add(new IC2ElectricBlockDriver());
         Driver.add(new IC2ElectricKineticDriver());
+        Driver.add(new IC2KineticGeneratorDriver());
         Driver.add(new IC2ReactorChamberDriver());
         Driver.add(new IC2ReactorDriver());
         Driver.add(new IC2ReactorVesselDriver());

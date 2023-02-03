@@ -15,9 +15,8 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package genelectrovise.galacticevolution.drivers;
+package genelectrovise.galacticevolutionaddons.drivers;
 
-import ic2.core.block.TileEntityBlock;
 import ic2.core.block.kineticgenerator.tileentity.*;
 import li.cil.oc.api.driver.NamedBlock;
 import li.cil.oc.api.machine.Arguments;
@@ -32,25 +31,25 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class IC2WaterKineticDriver extends DriverSidedTileEntity {
+public class IC2ElectricKineticDriver extends DriverSidedTileEntity {
 
     @Override
     public Class<?> getTileEntityClass() {
-        return TileEntityWaterKineticGenerator.class;
+        return TileEntityElectricKineticGenerator.class;
     }
 
     @Override
     public ManagedEnvironment createEnvironment(World world, BlockPos blockPos, EnumFacing enumFacing) {
-        return new Environment((TileEntityWaterKineticGenerator) world.getTileEntity(blockPos));
+        return new Environment((TileEntityElectricKineticGenerator) world.getTileEntity(blockPos));
     }
 
-    public static final class Environment extends ManagedTileEntityEnvironment<TileEntityWaterKineticGenerator> implements NamedBlock {
+    public static final class Environment extends ManagedTileEntityEnvironment<TileEntityElectricKineticGenerator> implements NamedBlock {
 
-        public static final String NAME = "ge_water_kinetic";
+        public static final String NAME = "ge_electric_kinetic";
         @Nullable
-        private final TileEntityWaterKineticGenerator generator;
+        private final TileEntityElectricKineticGenerator generator;
 
-        public Environment(final TileEntityWaterKineticGenerator entity) {
+        public Environment(final TileEntityElectricKineticGenerator entity) {
             super(entity, NAME);
             this.generator = entity;
         }
@@ -67,24 +66,24 @@ public class IC2WaterKineticDriver extends DriverSidedTileEntity {
 
         // Lua API
 
+        @Callback(doc = "function():boolean -- (GE) Get whether this generator contains a motor in its motor slot.")
+        public Object[] ge_hasMotorInSlot(final Context context, final Arguments args) {
+            return new Object[] { generator.slotMotor.isEmpty(args.checkInteger(0)) };
+        }
+
+        @Callback(doc = "function():boolean -- (GE) Get whether this generator contains an internal power source.")
+        public Object[] ge_hasInternalPowerSource(final Context context, final Arguments args) {
+            return new Object[] { generator.dischargeSlot.isEmpty(args.checkInteger(0)) };
+        }
+
+        @Callback(doc = "function():number -- (GE) Get the KU stored by this generator.")
+        public Object[] ge_getKU(final Context context, final Arguments args) {
+            return new Object[] { generator.ku };
+        }
+
         @Callback(doc = "function():number -- (GE) Get the max KU output of this generator.")
-        public Object[] ge_getMaxKUOutput(final Context context, final Arguments args) {
-            return new Object[] { generator.getKuOutput() };
-        }
-
-        @Callback(doc = "function():number -- (GE) Get the diameter of this generator's rotor.")
-        public Object[] ge_getRotorDiameter(final Context context, final Arguments args) {
-            return new Object[] { generator.getRotorDiameter() };
-        }
-
-        @Callback(doc = "function():number -- (GE) Get the damage of this generator's rotor.")
-        public Object[] ge_getRotorHealth(final Context context, final Arguments args) {
-            return new Object[] { generator.rotorSlot.get().getItemDamage() };
-        }
-
-        @Callback(doc = "function():string -- (GE) Get the health of this generator's rotor as a human-readable string.")
-        public Object[] ge_getRotorHealthString(final Context context, final Arguments args) {
-            return new Object[] { generator.getRotorHealth() };
+        public Object[] ge_getMaxKU(final Context context, final Arguments args) {
+            return new Object[] { generator.getMaxKU() };
         }
     }
 }

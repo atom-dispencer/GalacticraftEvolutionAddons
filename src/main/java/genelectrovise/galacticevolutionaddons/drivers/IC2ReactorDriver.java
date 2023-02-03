@@ -15,23 +15,17 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package genelectrovise.galacticevolution.drivers;
+package genelectrovise.galacticevolutionaddons.drivers;
 
-import ic2.api.reactor.IReactor;
-import ic2.api.reactor.IReactorChamber;
 import ic2.core.block.comp.Fluids;
-import ic2.core.block.generator.tileentity.TileEntityKineticGenerator;
 import ic2.core.block.reactor.tileentity.TileEntityNuclearReactorElectric;
 import li.cil.oc.api.driver.NamedBlock;
 import li.cil.oc.api.machine.Arguments;
 import li.cil.oc.api.machine.Callback;
 import li.cil.oc.api.machine.Context;
 import li.cil.oc.api.network.ManagedEnvironment;
-import li.cil.oc.api.network.Message;
-import li.cil.oc.api.network.Node;
 import li.cil.oc.api.prefab.DriverSidedTileEntity;
 import li.cil.oc.integration.ManagedTileEntityEnvironment;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -51,7 +45,7 @@ public class IC2ReactorDriver extends DriverSidedTileEntity {
 
     public static final class Environment extends ManagedTileEntityEnvironment<TileEntityNuclearReactorElectric> implements NamedBlock {
 
-        public static final String NAME = "ge_ic2_reactor";
+        public static final String NAME = "ge_reactor";
         private final TileEntityNuclearReactorElectric reactor;
 
         public Environment(final TileEntityNuclearReactorElectric reactor) {

@@ -3,14 +3,14 @@
   "modid": "galacticevolutionaddons",
   "name": "Galactic Evolution Addons",
   "description": "Customisations for the Galactic Evolution mod-pack.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
+  "version": "v1.0",
+  "mcversion": "1.12.2",
+  "url": "https://github.com/GenElectrovise/GalacticraftEvolutionAddons",
   "updateUrl": "",
   "authorList": ["GenElectrovise"],
-  "credits": "GamesMaster3000X, with whom I played the mod-pack",
+  "credits": "GamesMaster3000X, with whom I played the mod-pack.",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [ic2, opencomputers]
 }
 ]
