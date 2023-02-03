@@ -53,6 +53,7 @@ public class GalacticEvolutionAddons
         Driver.add(new IC2ReactorChamberDriver());
         Driver.add(new IC2ReactorDriver());
         Driver.add(new IC2ReactorVesselDriver());
+        Driver.add(new IC2SteamGeneratorDriver());
         Driver.add(new IC2SteamKineticDriver());
         Driver.add(new IC2StirlingKineticDriver());
         Driver.add(new IC2TransformerDriver());
