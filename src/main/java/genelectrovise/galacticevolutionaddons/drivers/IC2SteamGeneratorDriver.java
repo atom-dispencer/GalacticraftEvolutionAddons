@@ -70,7 +70,7 @@ public class IC2SteamGeneratorDriver extends DriverSidedTileEntity {
             assert 0 <= targetRate && targetRate <= 1000;
 
             int change = targetRate - steam.getInputMB();
-            LOGGER.info(String.format("Setting input rate of {0} to {1} (change by {2} from {3}", steam.getPos(), targetRate, change, steam.getInputMB()));
+            LOGGER.info(String.format("Setting pressure of %1$s to %2$s (change by %3$s from %4$s)", steam.getPos(), targetRate, change, steam.getInputMB()));
 
             changeInputRate(change);
         }
@@ -99,7 +99,7 @@ public class IC2SteamGeneratorDriver extends DriverSidedTileEntity {
             assert 0 <= targetPressure && targetPressure <= 300;
 
             int change = targetPressure - steam.getInputMB();
-            LOGGER.info(String.format("Setting pressure of {0} to {1} (change by {2} from {3}", steam.getPos(), targetPressure, change, steam.getInputMB()));
+            LOGGER.info(String.format("Setting pressure of %1$s to %2$s (change by %3$s from %4$s)", steam.getPos(), targetPressure, change, steam.getPressure()));
 
             changePressure(change);
         }
