@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "   ",
+        "IBI",
+        "IBI"
+    ],
+    "key":
+    {
+        "B":
+        {
+            "item": "minetraps:barbed_wire"
+        },
+        "I":
+        {
+            "item": "ic2:fence",
+            "data": 0
+        }
+    },
+    "result":
+    {
+        "item": "minetraps:barbed_wire_fence",
+        "count": 2
+    }
+}
