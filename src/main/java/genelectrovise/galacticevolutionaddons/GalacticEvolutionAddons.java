@@ -18,7 +18,12 @@
 package genelectrovise.galacticevolutionaddons;
 
 import genelectrovise.galacticevolutionaddons.drivers.*;
+import ic2.api.recipe.Recipes;
+import ic2.core.recipe.RecipeInputItemStack;
 import li.cil.oc.api.Driver;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -58,7 +63,5 @@ public class GalacticEvolutionAddons {
         Driver.add(new IC2TransformerDriver());
         Driver.add(new IC2WaterKineticDriver());
         Driver.add(new IC2WindKineticDriver());
-
-        // ForgeRegistries.RECIPES.register(new BarbedWireRecipe());
     }
 }
