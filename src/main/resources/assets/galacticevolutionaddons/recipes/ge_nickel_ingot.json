@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "galacticevolutionaddons:nickel_dust"
+    },
+    "result": "thermalfoundation:material",
+    "data": 133,
+    "experience": 5,
+    "cookingtime": 200
+}
