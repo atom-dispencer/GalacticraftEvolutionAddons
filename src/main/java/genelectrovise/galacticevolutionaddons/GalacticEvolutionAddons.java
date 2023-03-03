@@ -18,42 +18,29 @@
 package genelectrovise.galacticevolutionaddons;
 
 import genelectrovise.galacticevolutionaddons.drivers.*;
-import ic2.api.recipe.Recipes;
-import ic2.core.IC2;
-import ic2.core.item.ItemIC2;
-import ic2.core.recipe.RecipeInputItemStack;
-import ic2.core.ref.ItemName;
 import li.cil.oc.api.Driver;
-import li.cil.oc.integration.minecraft.RecipeHandler;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemNameTag;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.common.IRarity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Arrays;
 
 @Mod(
         modid = GalacticEvolutionAddons.MODID,
         name = GalacticEvolutionAddons.NAME,
         version = GalacticEvolutionAddons.VERSION,
-        dependencies = "required-before:ic2"
+        dependencies = "required-after:ic2"
 )
 @Mod.EventBusSubscriber()
 public class GalacticEvolutionAddons {
@@ -119,6 +106,7 @@ public class GalacticEvolutionAddons {
         ModelLoader.setCustomModelResourceLocation(GEAItems.PURIFIED_NICKEL, 0, new ModelResourceLocation(GEAItems.PURIFIED_NICKEL.getRegistryName(), ""));
         ModelLoader.setCustomModelResourceLocation(GEAItems.IRIDIUM_DUST, 0, new ModelResourceLocation(GEAItems.IRIDIUM_DUST.getRegistryName(), ""));
         ModelLoader.setCustomModelResourceLocation(GEAItems.TINY_IRIDIUM_DUST, 0, new ModelResourceLocation(GEAItems.TINY_IRIDIUM_DUST.getRegistryName(), ""));
+
     }
 
     public static class GEAItems {

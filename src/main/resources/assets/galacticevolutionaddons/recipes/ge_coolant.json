@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "type": "minecraft:item_nbt",
+            "item": "forge:bucketFilled",
+            "nbt": {
+                "FluidName": "ic2distilled_water",
+                "Amount": 1000
+            }
+        },
+        {
+            "item": "galacticraftplanets:carbon_fragments"
+        }
+    ],
+    "result": {
+        "item": "ic2:coolant"
+    }
+}
